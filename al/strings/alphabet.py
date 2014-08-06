@@ -1,4 +1,20 @@
 import math
+import string
+
+UPPERCASE = string.uppercase
+LOWERCASE = string.lowercase
+DIGITS    = string.digits
+DECIMAL   = string.digits
+
+BINARY      = '01'
+DNA         = 'ACTG'
+OCTAL       = DECIMAL[:8]
+HEXADECIMAL = DECIMAL + UPPERCASE[:6]
+PROTEIN     = 'ACDEFGHIKLMNPQRSTVWY'
+BASE64      = UPPERCASE + LOWERCASE + DECIMAL + '+/'
+ASCII       = ''.join([ chr(c) for c in range(2 ** 7)])
+EXTENDED_ASCII = ''.join([ chr(c) for c in range(2 ** 8)])
+
 
 class Alphabet(object):
 
