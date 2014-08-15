@@ -74,6 +74,37 @@ def shell_sort(items):
                 comp_index = j - gap
                 j = j - gap
 
+def merge(items, lo=None, mid=None, hi=None):
+    # Merge a[ lo.. mid ] with a[ mid + 1.. hi]
+    lo = lo if lo else 0
+    mid = mid if mid else len(items) // 2
+    hi = hi if hi else len(items)
+    i = lo
+    j = mid
+    
+    print lo, mid, hi, i, j
+    aux = items[:]
+    print aux
+    for k in range(lo, hi): # Merge back to a[ lo.. hi]
+        print 'in loop', k, i, j, lo, hi, mid, items, aux[k], aux[i], aux[j],
+        if i >= mid:
+            print 'i exhausted'
+            items[k] = aux[j]
+            j = j + 1
+        elif j > hi:
+            print 'j exhausted'
+            items[k] = aux[i]
+            i = i + 1
+        elif aux[j] < aux[i]:
+            print 'swap', aux[i], aux[j]
+            items[k] = aux[j]
+            j = j + 1
+        else:
+            print 'stable'
+            items[k] = aux[i]
+            i = i + 1
+    print items
+
 def selection_sorted(items):
     return _sorted(items, selection_sort)
 
